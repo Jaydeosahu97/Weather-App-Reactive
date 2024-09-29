@@ -1,0 +1,9 @@
+server:
+  port: 8761  # Default Eureka server port
+
+eureka:
+  client:
+    register-with-eureka: false  # Since this is the server, it doesn't register itself
+    fetch-registry: false        # No need to fetch registry as it's the registry server
+  #server:
+  #  enable-self-preservation: false  # Optional: Disable self-preservation mode for testing

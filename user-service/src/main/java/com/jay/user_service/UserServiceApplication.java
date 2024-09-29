@@ -2,8 +2,11 @@ package com.jay.user_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
 
 @SpringBootApplication
+@EnableR2dbcRepositories
 public class UserServiceApplication {
 
 	public static void main(String[] args) {

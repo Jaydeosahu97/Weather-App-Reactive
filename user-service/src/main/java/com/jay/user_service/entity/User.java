@@ -1,39 +1,28 @@
 package com.jay.user_service.entity;
 
 import com.jay.user_service.entity.column.Role;
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
-import java.io.Serializable;
 import java.util.Objects;
 
-@Entity
 @Table(name = "users")
-public class User implements Serializable {
+public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(unique = true, nullable = false)
     private String username;
-
-    @Column(unique = true, nullable = true)
-    private String emailId;
-
-    @Column(nullable = false)
+    private String emailid;
     private String password;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private Role role;
 
     public User() {
     }
 
-    public User(Long id, String username, String emailId, String password, Role role) {
+    public User(Long id, String username, String emailid, String password, Role role) {
         this.id = id;
         this.username = username;
-        this.emailId = emailId;
+        this.emailid = emailid;
         this.password = password;
         this.role = role;
     }
@@ -55,11 +44,11 @@ public class User implements Serializable {
     }
 
     public String getEmailId() {
-        return emailId;
+        return emailid;
     }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    public void setEmailId(String emailid) {
+        this.emailid = emailid;
     }
 
     public String getPassword() {
@@ -83,7 +72,7 @@ public class User implements Serializable {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", emailId='" + emailId + '\'' +
+                ", emailId='" + emailid + '\'' +
                 ", password='" + password + '\'' +
                 ", role=" + role +
                 '}';
